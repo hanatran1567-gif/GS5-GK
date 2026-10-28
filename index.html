@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đề Luyện Thi Giữa Kỳ I - Tiếng Anh 5 Global Success</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Lexend -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Lexend', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#035485',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .section-card {
+            background: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .option-btn {
+            transition: all 0.2s ease;
+        }
+        .option-btn:hover:not(:disabled) {
+            transform: translateY(-1px);
+            background-color: #f0fdf4;
+            border-color: #22c55e;
+        }
+        .selected-option {
+            background-color: #e0f2fe !important;
+            border-color: #0284c7 !important;
+            color: #0369a1 !important;
+            font-weight: 600;
+        }
+        .correct-option {
+            background-color: #dcfce7 !important;
+            border-color: #22c55e !important;
+            color: #15803d !important;
+            font-weight: 600;
+        }
+        .incorrect-option {
+            background-color: #fee2e2 !important;
+            border-color: #ef4444 !important;
+            color: #b91c1c !important;
+            font-weight: 600;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="text-slate-800 pb-20 min-h-screen">
+
+    <!-- Top Navigation Header -->
+    <header class="bg-gradient-to-r from-sky-600 via-indigo-600 to-blue-700 text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-3">
+            <div class="flex items-center space-x-3">
+                <span class="bg-white/20 p-2.5 rounded-xl backdrop-blur-sm">
+                    <i class="fa-solid fa-graduation-cap text-2xl text-yellow-300"></i>
+                </span>
+                <div>
+                    <h1 class="font-heading font-bold text-lg sm:text-xl tracking-tight leading-tight">ENGLISH 5 GLOBAL SUCCESS</h1>
+                    <p class="text-xs text-sky-100 font-medium">Đề Luyện Thi Giữa Kỳ I (Mid-Term 1 Review Practice Test)</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-3 text-xs sm:text-sm">
+                <div class="bg-white/10 px-3 py-1.5 rounded-lg border border-white/20 flex items-center gap-2">
+                    <i class="fa-solid fa-eye text-sky-200"></i>
+                    <span>Lượt truy cập: <strong id="visitor-count" class="text-yellow-300">1</strong></span>
+                </div>
+                <div class="bg-amber-400 text-slate-900 font-bold px-3 py-1.5 rounded-lg shadow-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>60 phút</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-5xl mx-auto px-4 pt-6">
+
+        <!-- Student Info Header Card -->
+        <div class="section-card p-5 sm:p-6 mb-6 border-l-4 border-sky-500">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4 pb-4 border-b border-slate-100">
+                <div>
+                    <span class="inline-block px-3 py-1 bg-sky-100 text-sky-800 rounded-full text-xs font-semibold mb-1">Thống kê đề thi</span>
+                    <h2 class="font-heading font-bold text-xl text-slate-800">THÔNG TIN THÍ SINH & ĐỀ THI</h2>
+                </div>
+                <div class="text-xs sm:text-sm text-slate-600 bg-slate-50 p-2.5 rounded-lg border border-slate-200/80">
+                    <p><i class="fa-solid fa-circle-info text-sky-500 mr-1"></i> <strong>Cấu trúc:</strong> 45 câu (Mỗi câu = 0.2 điểm, Quy đổi hệ 10.0)</p>
+                    <p class="text-slate-500 mt-0.5"><i class="fa-solid fa-globe text-emerald-500 mr-1"></i> Time allowed: 60 minutes | 0.2 points per question</p>
+                </div>
+            </div>
+
+            <form id="student-form" onsubmit="event.preventDefault();" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 uppercase mb-1">Họ và tên (Full Name):</label>
+                    <input type="text" id="student-name" placeholder="Nhập họ và tên..." class="w-full px-3.5 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none text-sm transition-all">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 uppercase mb-1">Lớp (Class):</label>
+                    <input type="text" id="student-class" placeholder="VD: 5A1..." class="w-full px-3.5 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none text-sm transition-all">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 uppercase mb-1">Điểm số (Score):</label>
+                    <div id="score-display" class="w-full px-3.5 py-2 bg-slate-100 border border-slate-200 rounded-lg font-bold text-sky-700 text-sm flex items-center justify-between">
+                        <span>-- / 10.0</span>
+                        <span class="text-xs font-normal text-slate-500">(Chưa nộp)</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Sticky Floating Progress & Action Bar -->
+        <div class="sticky top-16 z-40 bg-white/90 backdrop-blur-md p-3 rounded-xl shadow-md border border-slate-200/80 mb-6 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <span class="text-xs font-semibold text-slate-500">Tiến độ làm bài:</span>
+                <div class="w-32 sm:w-48 bg-slate-200 rounded-full h-2.5 overflow-hidden">
+                    <div id="progress-bar" class="bg-sky-500 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+                <span id="progress-text" class="text-xs font-bold text-sky-700">0/45 câu</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button onclick="resetTest()" class="px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-rotate-right"></i> Làm lại
+                </button>
+                <button onclick="submitTest()" class="px-5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold transition-all shadow-sm hover:shadow flex items-center gap-1.5">
+                    <i class="fa-solid fa-paper-plane"></i> Nộp bài & Chấm điểm
+                </button>
+            </div>
+        </div>
+
+        <!-- TEST CONTENT CONTAINER -->
+        <div id="test-container" class="space-y-6">
+            <!-- Questions rendered via JS -->
+        </div>
+
+        <!-- BOTTOM SUBMIT BUTTON AREA -->
+        <div class="mt-8 text-center bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 class="font-heading font-bold text-slate-800 text-lg mb-2">Đã hoàn thành bài làm của bạn?</h3>
+            <p class="text-slate-500 text-sm mb-4">Nhấn nút bên dưới để hệ thống kiểm tra, chấm điểm và hiển thị giải thích chi tiết từng câu sai.</p>
+            <button onclick="submitTest()" class="px-8 py-3 bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 text-white rounded-xl font-bold text-base shadow-lg transition-all transform hover:-translate-y-0.5">
+                <i class="fa-solid fa-check-double mr-2"></i> Nộp bài & Xem Lời Giải Chi Tiết
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Score Modal Results -->
+    <div id="score-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 text-center shadow-2xl transform transition-all relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-sky-500 via-indigo-500 to-emerald-500"></div>
+            
+            <div id="modal-icon" class="w-16 h-16 rounded-full bg-sky-100 text-sky-600 mx-auto flex items-center justify-center text-2xl mb-3 mt-2">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+
+            <h3 class="font-heading font-bold text-2xl text-slate-800 mb-1">KẾT QUẢ BÀI THI</h3>
+            <p id="student-result-name" class="text-sm font-semibold text-slate-500 mb-4">Học sinh: -</p>
+
+            <div class="bg-slate-50 rounded-xl p-4 border border-slate-100 mb-5">
+                <div class="text-xs uppercase font-semibold text-slate-400 mb-1">Điểm tổng kết</div>
+                <div class="text-4xl font-extrabold text-sky-600 mb-2"><span id="modal-score">0.0</span> <span class="text-lg font-normal text-slate-400">/ 10</span></div>
+                <div class="text-xs text-slate-600 flex justify-center gap-4 border-t border-slate-200/60 pt-2.5">
+                    <span>Số câu đúng: <strong id="modal-correct" class="text-emerald-600">0/45</strong></span>
+                    <span>Tỷ lệ: <strong id="modal-percent" class="text-sky-600">0%</strong></span>
+                </div>
+            </div>
+
+            <p id="modal-feedback" class="text-sm text-slate-600 mb-6 italic">"Hãy xem lại các câu trả lời và lời giải chi tiết bên dưới để ôn tập tốt hơn nhé!"</p>
+
+            <button onclick="closeModal()" class="w-full py-2.5 bg-sky-600 hover:bg-sky-700 text-white font-bold rounded-xl text-sm transition-colors shadow">
+                Xem Lời Giải Chi Tiết
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Data & Logic -->
+    <script>
+        // Data Structure for Questions
+        const examData = [
+            {
+                sectionId: 1,
+                title: "SECTION I. WORD STRESS (Trọng Âm Từ)",
+                subtitle: "Choose the word with a different stress pattern from the others.",
+                questions: [
+                    {
+                        id: 1,
+                        type: "mcq",
+                        question: "Choose the word with a different stress pattern.",
+                        options: ["A. island", "B. city", "C. village", "D. hotel"],
+                        correct: 3,
+                        explanation: "<b>'hotel'</b> nhấn trọng âm ở âm tiết thứ hai /hoʊˈtel/. Các từ còn lại nhấn trọng âm thứ nhất: <i>'island'</i> /ˈaɪ.lənd/, <i>'city'</i> /ˈsɪt.i/, <i>'village'</i> /ˈvɪl.ɪdʒ/."
+                    },
+                    {
+                        id: 2,
+                        type: "mcq",
+                        question: "Choose the word with a different stress pattern.",
+                        options: ["A. gardener", "B. reporter", "C. writer", "D. teacher"],
+                        correct: 1,
+                        explanation: "<b>'reporter'</b> nhấn trọng âm thứ hai /rɪˈpɔː.tər/. Các từ còn lại nhấn âm tiết thứ nhất: <i>'gardener'</i> /ˈɡɑː.dən.ər/, <i>'writer'</i> /ˈraɪ.tər/, <i>'teacher'</i> /ˈtiː.tʃər/."
+                    },
+                    {
+                        id: 3,
+                        type: "mcq",
+                        question: "Choose the word with a different stress pattern.",
+                        options: ["A. active", "B. reporter", "C. friendly", "D. helpful"],
+                        correct: 1,
+                        explanation: "<b>'reporter'</b> nhấn trọng âm thứ hai /rɪˈpɔː.tər/. Các tính từ còn lại nhấn âm thứ nhất: <i>'active'</i> /ˈæk.tɪv/, <i>'friendly'</i> /ˈfrend.li/, <i>'helpful'</i> /ˈhelp.fəl/."
+                    },
+                    {
+                        id: 4,
+                        type: "mcq",
+                        question: "Choose the word with a different stress pattern.",
+                        options: ["A. Japanese", "B. Vietnamese", "C. British", "D. Chinese"],
+                        correct: 2,
+                        explanation: "<b>'British'</b> nhấn trọng âm âm tiết thứ nhất /ˈbrɪt.ɪʃ/. Các từ còn lại nhấn trọng âm đuôi '-ese': <i>'Japanese'</i> /ˌdʒæp.ənˈiːz/ (âm 3), <i>'Vietnamese'</i> /ˌvjet.næmˈiːz/ (âm 3), <i>'Chinese'</i> /ˌtʃaɪˈniːz/ (âm 2)."
+                    },
+                    {
+                        id: 5,
+                        type: "mcq",
+                        question: "Choose the word with a different stress pattern.",
+                        options: ["A. police", "B. doctor", "C. dentist", "D. teacher"],
+                        correct: 0,
+                        explanation: "<b>'police'</b> nhấn trọng âm ở âm tiết thứ hai /pəˈliːs/. Các từ chỉ nghề nghiệp còn lại nhấn trọng âm thứ nhất: <i>'doctor'</i> /ˈdɒk.tər/, <i>'dentist'</i> /ˈden.tɪst/, <i>'teacher'</i> /ˈtiː.tʃər/."
+                    }
+                ]
+            },
+            {
+                sectionId: 2,
+                title: "SECTION II. VOCABULARY AND GRAMMAR (Từ Vựng & Ngữ Pháp)",
+                subtitle: "Choose the best option A, B, C or D to complete each sentence.",
+                questions: [
+                    {
+                        id: 6,
+                        type: "mcq",
+                        question: "Choose the odd one out (Chọn từ khác loại).",
+                        options: ["A. water the flowers", "B. surf the Internet", "C. dentist", "D. ride a bike"],
+                        correct: 2,
+                        explanation: "<b>'dentist'</b> (nha sĩ) là danh từ chỉ nghề nghiệp. Các đáp án A, B, D đều là các cụm động từ chỉ hoạt động."
+                    },
+                    {
+                        id: 7,
+                        type: "mcq",
+                        question: "Choose the odd one out (Chọn từ khác loại).",
+                        options: ["A. street", "B. tower", "C. active", "D. address"],
+                        correct: 2,
+                        explanation: "<b>'active'</b> (năng động) là tính từ. Các phương án A, B, D đều là danh từ chỉ nơi chốn/địa chỉ."
+                    },
+                    {
+                        id: 8,
+                        type: "mcq",
+                        question: "Nam lives ___ 18 River Street.",
+                        options: ["A. at", "B. in", "C. from", "D. on"],
+                        correct: 0,
+                        explanation: "Dùng giới từ <b>'at'</b> trước địa chỉ cụ thể có số nhà + tên đường (18 River Street)."
+                    },
+                    {
+                        id: 9,
+                        type: "mcq",
+                        question: "Does Nam live in a house? - Yes, ___ does.",
+                        options: ["A. they", "B. I", "C. we", "D. he"],
+                        correct: 3,
+                        explanation: "Chủ ngữ là 'Nam' (nam giới số ít), câu trả lời đồng ý với câu hỏi 'Does...?' là <b>'Yes, he does'</b>."
+                    },
+                    {
+                        id: 10,
+                        type: "mcq",
+                        question: "What nationality is Ken? - Ken is ___.",
+                        options: ["A. Britain", "B. Vietnam", "C. Japan", "D. Japanese"],
+                        correct: 3,
+                        explanation: "Câu hỏi về quốc tịch (nationality), câu trả lời phải dùng từ chỉ quốc tịch: <b>'Japanese'</b> (người Nhật/quốc tịch Nhật). 'Japan', 'Vietnam', 'Britain' là tên quốc gia."
+                    },
+                    {
+                        id: 11,
+                        type: "mcq",
+                        question: "What's Ken like? - He is very ___.",
+                        options: ["A. clever", "B. street", "C. British", "D. weekend"],
+                        correct: 0,
+                        explanation: "Hỏi 'What is someone like?' (Ai đó thế nào/tính cách ra sao?) cần tính từ chỉ tính cách: <b>'clever'</b> (thông minh)."
+                    },
+                    {
+                        id: 12,
+                        type: "mcq",
+                        question: "I like ___ in my free time.",
+                        options: ["A. am playing the violin", "B. playing the violin", "C. play the violin", "D. to playing the violin"],
+                        correct: 1,
+                        explanation: "Sau động từ chỉ sở thích <i>'like'</i> dùng danh động từ V-ing: <b>'like playing the violin'</b> (thích chơi đàn vi-ô-lông)."
+                    },
+                    {
+                        id: 13,
+                        type: "mcq",
+                        question: "Nam usually ___ to music at the weekend.",
+                        options: ["A. listen", "B. listening", "C. to listen", "D. listens"],
+                        correct: 3,
+                        explanation: "Thì hiện tại đơn với chủ ngữ ngôi thứ 3 số ít ('Nam') và trạng từ 'usually' thì động từ phải thêm 's/es': <b>'listens'</b>."
+                    },
+                    {
+                        id: 14,
+                        type: "mcq",
+                        question: "What do you do at the weekend? - I ___ listen to music.",
+                        options: ["A. future", "B. friendly", "C. British", "D. often"],
+                        correct: 3,
+                        explanation: "Cần một trạng từ chỉ tần suất trong thì hiện tại đơn đứng trước động từ thường 'listen': <b>'often'</b> (thường xuyên)."
+                    },
+                    {
+                        id: 15,
+                        type: "mcq",
+                        question: "What would you like to be in the future? - I'd like ___ a reporter.",
+                        options: ["A. am", "B. being", "C. be", "D. to be"],
+                        correct: 3,
+                        explanation: "Cấu trúc <i>'would like + to V'</i> (muốn trở thành...): <b>'I'd like to be...'</b>."
+                    },
+                    {
+                        id: 16,
+                        type: "mcq",
+                        question: "Why would you like to be a firefighter? - Because I'd like to ___.",
+                        options: ["A. be British", "B. live in a flat", "C. be in Grade 5", "D. help and save people"],
+                        correct: 3,
+                        explanation: "Lý do muốn làm lính cứu hỏa (firefighter) hợp lý nhất về nghĩa là <b>'help and save people'</b> (giúp đỡ và cứu người)."
+                    },
+                    {
+                        id: 17,
+                        type: "mcq",
+                        question: "Can you tell me about yourself? - I'm ___ Grade 5.",
+                        options: ["A. at", "B. from", "C. in", "D. on"],
+                        correct: 2,
+                        explanation: "Dùng giới từ <b>'in'</b> khi nói về lớp học: <i>'in Grade 5'</i> (học lớp 5)."
+                    },
+                    {
+                        id: 18,
+                        type: "mcq",
+                        question: "What's your favourite ___? - It's English.",
+                        options: ["A. subject", "B. nationality", "C. job", "D. address"],
+                        correct: 0,
+                        explanation: "English (Tiếng Anh) là tên môn học, nên từ cần điền là <b>'subject'</b> (môn học yêu thích)."
+                    },
+                    {
+                        id: 19,
+                        type: "mcq",
+                        question: "My friend lives ___ a small village in the countryside.",
+                        options: ["A. in", "B. at", "C. to", "D. on"],
+                        correct: 0,
+                        explanation: "Sử dụng giới từ <b>'in'</b> đi với ngôi làng/thành phố/khu vực: <i>'in a small village'</i> (ở một ngôi làng nhỏ)."
+                    },
+                    {
+                        id: 20,
+                        type: "mcq",
+                        question: "A person from Japan is ___.",
+                        options: ["A. city", "B. Japanese", "C. Japan", "D. Britain"],
+                        correct: 1,
+                        explanation: "Một người đến từ Nhật Bản (Japan) có quốc tịch là <b>'Japanese'</b> (người Nhật)."
+                    }
+                ]
+            },
+            {
+                sectionId: 3,
+                title: "SECTION III. COMMUNICATION (Giao Tiếp)",
+                subtitle: "Choose the best response to complete each dialogue.",
+                questions: [
+                    {
+                        id: 21,
+                        type: "mcq",
+                        question: "A: Where do you live? - B: ___",
+                        options: ["A. I live in a house in Da Nang.", "B. I am in Grade 5.", "C. I am Vietnamese.", "D. I like my home."],
+                        correct: 0,
+                        explanation: "Câu hỏi <i>'Where do you live?'</i> (Bạn sống ở đâu?) trả lời về nơi ở: <b>'I live in a house in Da Nang.'</b>"
+                    },
+                    {
+                        id: 22,
+                        type: "mcq",
+                        question: "A: What's Ken like? - B: ___",
+                        options: ["A. Ken likes music.", "B. Ken is Japanese.", "C. Ken is clever.", "D. Ken lives in a flat."],
+                        correct: 2,
+                        explanation: "Câu hỏi tính cách <i>'What's Ken like?'</i> được trả lời bằng tính từ miêu tả tính cách: <b>'Ken is clever.'</b> (Ken thông minh)."
+                    },
+                    {
+                        id: 23,
+                        type: "mcq",
+                        question: "A: What do you like doing in your free time? - B: ___",
+                        options: ["A. I'd like to be a firefighter.", "B. I like playing the violin.", "C. I live at 18 River Street.", "D. I am Vietnamese."],
+                        correct: 1,
+                        explanation: "Hỏi về sở thích lúc rảnh rỗi <i>'What do you like doing...'</i> trả lời: <b>'I like playing the violin.'</b> (Tớ thích chơi vi-ô-lông)."
+                    },
+                    {
+                        id: 24,
+                        type: "mcq",
+                        question: "A: What would you like to be in the future? - B: ___",
+                        options: ["A. I am in Grade 5.", "B. I like playing the violin.", "C. I live in Da Nang.", "D. I'd like to be a firefighter."],
+                        correct: 3,
+                        explanation: "Hỏi ước mơ nghề nghiệp tương lai <i>'What would you like to be...'</i> trả lời: <b>'I'd like to be a firefighter.'</b>"
+                    },
+                    {
+                        id: 25,
+                        type: "mcq",
+                        question: "A: Why would you like to be a firefighter? - B: ___",
+                        options: ["A. Because I'd like to help and save people.", "B. No, I am not.", "C. Yes, I would.", "D. At the weekend."],
+                        correct: 0,
+                        explanation: "Câu hỏi bắt đầu bằng <i>'Why...?'</i> (Tại sao?) trả lời bắt đầu bằng <b>'Because...'</b> (Bởi vì...)."
+                    }
+                ]
+            },
+            {
+                sectionId: 4,
+                title: "SECTION IV. ERROR IDENTIFICATION (Tìm Lỗi Sai)",
+                subtitle: "Choose the underlined part A, B, C or D that needs correction.",
+                questions: [
+                    {
+                        id: 26,
+                        type: "mcq",
+                        question: "<u>Ken</u> (A) <u>is</u> (B) <u>Japan</u> (C) <u>and very kind</u> (D).",
+                        options: ["A. Ken", "B. is", "C. Japan", "D. and very kind"],
+                        correct: 2,
+                        explanation: "Sửa <b>'Japan'</b> thành <b>'Japanese'</b>. Cần tính từ chỉ quốc tịch đằng sau động từ to be 'is'."
+                    },
+                    {
+                        id: 27,
+                        type: "mcq",
+                        question: "<u>I</u> (A) <u>would like</u> (B) <u>be</u> (C) <u>a firefighter</u> (D) in the future.",
+                        options: ["A. I", "B. would like", "C. be", "D. a firefighter"],
+                        correct: 2,
+                        explanation: "Sửa <b>'be'</b> thành <b>'to be'</b>. Cấu trúc đầy đủ là <i>'would like + to-V'</i>."
+                    },
+                    {
+                        id: 28,
+                        type: "mcq",
+                        question: "<u>He</u> (A) <u>usually</u> (B) <u>listen</u> (C) <u>to music at the weekend</u> (D).",
+                        options: ["A. He", "B. usually", "C. listen", "D. to music at the weekend"],
+                        correct: 2,
+                        explanation: "Sửa <b>'listen'</b> thành <b>'listens'</b>. Chủ ngữ 'He' là ngôi thứ ba số ít ở thì hiện tại đơn."
+                    },
+                    {
+                        id: 29,
+                        type: "mcq",
+                        question: "<u>Nam</u> (A) <u>like</u> (B) <u>reading stories</u> (C) <u>in his free time</u> (D).",
+                        options: ["A. Nam", "B. like", "C. reading stories", "D. in his free time"],
+                        correct: 1,
+                        explanation: "Sửa <b>'like'</b> thành <b>'likes'</b>. Động từ đi theo chủ ngữ ngôi 3 số ít 'Nam'."
+                    },
+                    {
+                        id: 30,
+                        type: "mcq",
+                        question: "<u>Where</u> (A) <u>does</u> (B) <u>you</u> (C) <u>live</u> (D)?",
+                        options: ["A. Where", "B. does", "C. you", "D. live"],
+                        correct: 1,
+                        explanation: "Sửa <b>'does'</b> thành <b>'do'</b>. Trợ động từ đi với chủ ngữ 'you' phải là 'do'."
+                    }
+                ]
+            },
+            {
+                sectionId: 5,
+                title: "SECTION V. CLOZE READING (Đọc Điền Từ)",
+                subtitle: "Read the passage and choose the best word for each blank.",
+                passage: "Hello! My name is Nam. I am in Grade 5. I live (31) ___ a house in Da Nang. My foreign friend is Ken. Ken is (32) ___ and very clever. In my free time, I like (33) ___. At the weekend, I (34) ___ do fun activities with my family. In the future, I'd like to be a firefighter (35) ___ I'd like to help and save people.",
+                questions: [
+                    {
+                        id: 31,
+                        type: "mcq",
+                        question: "Choose the best word for blank (31).",
+                        options: ["A. at", "B. in", "C. on", "D. from"],
+                        correct: 1,
+                        explanation: "Dùng <b>'in'</b> a house: sống trong một ngôi nhà."
+                    },
+                    {
+                        id: 32,
+                        type: "mcq",
+                        question: "Choose the best word for blank (32).",
+                        options: ["A. Japanese", "B. friendly", "C. weekend", "D. city"],
+                        correct: 0,
+                        explanation: "Đoạn văn giới thiệu Ken là bạn nước ngoài, nên từ chỉ quốc tịch <b>'Japanese'</b> phù hợp nhất."
+                    },
+                    {
+                        id: 33,
+                        type: "mcq",
+                        question: "Choose the best word for blank (33).",
+                        options: ["A. Da Nang", "B. Grade 5", "C. playing the violin", "D. 18 River Street"],
+                        correct: 2,
+                        explanation: "Sau 'I like' trong ngữ cảnh rảnh rỗi là sở thích <b>'playing the violin'</b>."
+                    },
+                    {
+                        id: 34,
+                        type: "mcq",
+                        question: "Choose the best word for blank (34).",
+                        options: ["A. future", "B. British", "C. usually", "D. street"],
+                        correct: 2,
+                        explanation: "Cần trạng từ chỉ tần suất đứng trước động từ 'do': <b>'usually'</b>."
+                    },
+                    {
+                        id: 35,
+                        type: "mcq",
+                        question: "Choose the best word for blank (35).",
+                        options: ["A. but", "B. and", "C. or", "D. because"],
+                        correct: 3,
+                        explanation: "Từ nối chỉ nguyên nhân lý do <b>'because'</b> (vì tớ muốn giúp đỡ và cứu người)."
+                    }
+                ]
+            },
+            {
+                sectionId: 6,
+                title: "SECTION VI. READING COMPREHENSION (Đọc Hiểu Văn Bản)",
+                subtitle: "Read the text and answer the questions.",
+                passage: "Nam is a Grade 5 pupil. He lives in a house at 18 River Street in Da Nang. Ken is his foreign friend. Ken is Japanese and clever. Nam likes playing the violin in his free time. At the weekend, he often listens to music. Nam has a dream job. He would like to be a firefighter because he would like to help and save people.",
+                questions: [
+                    {
+                        id: 36,
+                        type: "mcq",
+                        question: "What grade is Nam in?",
+                        options: ["A. Grade 5", "B. Grade 3", "C. Grade 6", "D. Grade 4"],
+                        correct: 0,
+                        explanation: "Dẫn chứng câu 1: 'Nam is a Grade 5 pupil' -> <b>Grade 5</b>."
+                    },
+                    {
+                        id: 37,
+                        type: "mcq",
+                        question: "Where does Nam live?",
+                        options: ["A. In Japan", "B. In a house in Da Nang", "C. In a school", "D. In Britain"],
+                        correct: 1,
+                        explanation: "Dẫn chứng câu 2: 'He lives in a house at 18 River Street in Da Nang'."
+                    },
+                    {
+                        id: 38,
+                        type: "mcq",
+                        question: "What nationality is Ken?",
+                        options: ["A. Japanese", "B. Indian", "C. Chinese", "D. Vietnamese"],
+                        correct: 0,
+                        explanation: "Dẫn chứng câu 4: 'Ken is Japanese and clever' -> Quốc tịch <b>Japanese</b>."
+                    },
+                    {
+                        id: 39,
+                        type: "mcq",
+                        question: "What does Nam like doing in his free time?",
+                        options: ["A. Cooking dinner", "B. Going to school", "C. Doing homework", "D. Playing the violin"],
+                        correct: 3,
+                        explanation: "Dẫn chứng câu 5: 'Nam likes playing the violin in his free time'."
+                    },
+                    {
+                        id: 40,
+                        type: "mcq",
+                        question: "What would Nam like to be?",
+                        options: ["A. A pupil", "B. A foreign friend", "C. A musician", "D. A firefighter"],
+                        correct: 3,
+                        explanation: "Dẫn chứng câu cuối: 'He would like to be a firefighter...'."
+                    }
+                ]
+            },
+            {
+                sectionId: 7,
+                title: "SECTION VII. WRITING - REARRANGE SENTENCES (Sắp Xếp Từ Thành Câu)",
+                subtitle: "Rearrange the given words to make complete and correct sentences.",
+                questions: [
+                    {
+                        id: 41,
+                        type: "text",
+                        question: "live / Where / you / do / ?",
+                        correctAnswer: "Where do you live?",
+                        explanation: "Cấu trúc câu hỏi nơi ở: <i>Where + do + you + live?</i>"
+                    },
+                    {
+                        id: 42,
+                        type: "text",
+                        question: "is / What / Ken / nationality / ?",
+                        correctAnswer: "What nationality is Ken?",
+                        explanation: "Cấu trúc câu hỏi quốc tịch: <i>What nationality + is + S?</i>"
+                    },
+                    {
+                        id: 43,
+                        type: "text",
+                        question: "free time / I / playing the violin / like / in my / .",
+                        correctAnswer: "I like playing the violin in my free time.",
+                        explanation: "Cấu trúc: <i>S + like + V-ing + in my free time.</i>"
+                    },
+                    {
+                        id: 44,
+                        type: "text",
+                        question: "future / would / What / be / you / like to / in the / ?",
+                        correctAnswer: "What would you like to be in the future?",
+                        explanation: "Cấu trúc hỏi nghề nghiệp tương lai: <i>What would you like to be in the future?</i>"
+                    },
+                    {
+                        id: 45,
+                        type: "text",
+                        question: "a firefighter / I'd / because / to / help and save people / like to be / I'd like / .",
+                        correctAnswer: "I'd like to be a firefighter because I'd like to help and save people.",
+                        explanation: "Cấu trúc trả lời lý do chọn nghề nghiệp: <i>I'd like to be [job] because I'd like to [reason].</i>"
+                    }
+                ]
+            }
+        ];
+
+        // State Store
+        let userAnswers = {};
+        let submitted = false;
+
+        // Initialize Page & Visitor Counter
+        document.addEventListener('DOMContentLoaded', () => {
+            initVisitorCounter();
+            renderTest();
+        });
+
+        function initVisitorCounter() {
+            let count = localStorage.getItem('g5_exam_visits');
+            if (!count) {
+                count = 1;
+            } else {
+                count = parseInt(count) + 1;
+            }
+            localStorage.setItem('g5_exam_visits', count);
+            document.getElementById('visitor-count').textContent = count;
+        }
+
+        function renderTest() {
+            const container = document.getElementById('test-container');
+            container.innerHTML = '';
+
+            examData.forEach(sec => {
+                const secCard = document.createElement('div');
+                secCard.className = 'section-card p-5 sm:p-6 mb-6';
+
+                let passageHtml = '';
+                if (sec.passage) {
+                    passageHtml = `
+                        <div class="bg-amber-50/70 border border-amber-200/80 p-4 rounded-xl my-4 text-slate-700 text-sm sm:text-base leading-relaxed italic">
+                            <div class="font-bold text-amber-800 not-italic mb-1 text-xs uppercase tracking-wider"><i class="fa-solid fa-book-open mr-1.5"></i> Đoạn văn đọc hiểu / Đoạn văn điền từ:</div>
+                            "${sec.passage}"
+                        </div>
+                    `;
+                }
+
+                let questionsHtml = sec.questions.map(q => {
+                    if (q.type === 'mcq') {
+                        return `
+                            <div id="q-box-${q.id}" class="py-4 border-b border-slate-100 last:border-none transition-all">
+                                <div class="flex items-start gap-2 mb-3">
+                                    <span class="bg-sky-100 text-sky-800 font-bold px-2.5 py-0.5 rounded-md text-xs mt-0.5">Câu ${q.id}</span>
+                                    <h4 class="font-semibold text-slate-800 text-sm sm:text-base">${q.question}</h4>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 ml-0 sm:ml-7">
+                                    ${q.options.map((opt, idx) => `
+                                        <button type="button" 
+                                            id="btn-${q.id}-${idx}"
+                                            onclick="selectOption(${q.id}, ${idx})"
+                                            class="option-btn text-left p-3 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-700 flex items-center justify-between">
+                                            <span>${opt}</span>
+                                            <i id="icon-${q.id}-${idx}" class="fa-regular fa-circle text-slate-300 text-sm"></i>
+                                        </button>
+                                    `).join('')}
+                                </div>
+                                <div id="exp-${q.id}" class="hidden mt-3 ml-0 sm:ml-7 p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-700">
+                                    <div class="font-bold text-sky-700 mb-1 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-lightbulb text-amber-500"></i> Giải thích chi tiết đáp án & Lỗi sai:
+                                    </div>
+                                    <div id="exp-text-${q.id}">${q.explanation}</div>
+                                </div>
+                            </div>
+                        `;
+                    } else if (q.type === 'text') {
+                        return `
+                            <div id="q-box-${q.id}" class="py-4 border-b border-slate-100 last:border-none transition-all">
+                                <div class="flex items-start gap-2 mb-2">
+                                    <span class="bg-indigo-100 text-indigo-800 font-bold px-2.5 py-0.5 rounded-md text-xs mt-0.5">Câu ${q.id}</span>
+                                    <h4 class="font-semibold text-slate-800 text-sm sm:text-base">${q.question}</h4>
+                                </div>
+                                <div class="ml-0 sm:ml-7 space-y-2">
+                                    <input type="text" 
+                                        id="input-${q.id}"
+                                        oninput="handleTextInput(${q.id}, this.value)"
+                                        placeholder="Nhập câu trả lời viết lại đầy đủ ở đây..."
+                                        class="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-sky-500 outline-none transition-all">
+                                </div>
+                                <div id="exp-${q.id}" class="hidden mt-3 ml-0 sm:ml-7 p-3.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-700">
+                                    <div class="font-bold text-emerald-700 mb-1 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-circle-check"></i> Đáp án đúng chuẩn:
+                                    </div>
+                                    <div class="font-semibold text-slate-800 mb-2 p-2 bg-emerald-50 rounded border border-emerald-200">${q.correctAnswer}</div>
+                                    <div class="font-bold text-sky-700 mb-1 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-lightbulb text-amber-500"></i> Giải thích ngữ pháp:
+                                    </div>
+                                    <div>${q.explanation}</div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }).join('');
+
+                secCard.innerHTML = `
+                    <div class="border-b border-slate-200 pb-3 mb-2">
+                        <h3 class="font-heading font-bold text-base sm:text-lg text-sky-800 flex items-center gap-2">
+                            <i class="fa-solid fa-bookmark text-sky-500"></i> ${sec.title}
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-500">${sec.subtitle}</p>
+                    </div>
+                    ${passageHtml}
+                    <div>${questionsHtml}</div>
+                `;
+
+                container.appendChild(secCard);
+            });
+        }
+
+        function selectOption(qId, optionIdx) {
+            if (submitted) return;
+
+            userAnswers[qId] = optionIdx;
+
+            // Reset styles for option buttons of this question
+            const q = findQuestion(qId);
+            q.options.forEach((_, idx) => {
+                const btn = document.getElementById(`btn-${qId}-${idx}`);
+                const icon = document.getElementById(`icon-${qId}-${idx}`);
+                btn.className = "option-btn text-left p-3 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-700 flex items-center justify-between";
+                icon.className = "fa-regular fa-circle text-slate-300 text-sm";
+            });
+
+            // Highlight selected
+            const selBtn = document.getElementById(`btn-${qId}-${optionIdx}`);
+            const selIcon = document.getElementById(`icon-${qId}-${optionIdx}`);
+            selBtn.className = "option-btn text-left p-3 border rounded-xl text-xs sm:text-sm flex items-center justify-between selected-option";
+            selIcon.className = "fa-solid fa-circle-dot text-sky-600 text-sm";
+
+            updateProgress();
+        }
+
+        function handleTextInput(qId, val) {
+            if (submitted) return;
+            if (val.trim() !== '') {
+                userAnswers[qId] = val.trim();
+            } else {
+                delete userAnswers[qId];
+            }
+            updateProgress();
+        }
+
+        function findQuestion(qId) {
+            for (let sec of examData) {
+                let found = sec.questions.find(q => q.id === qId);
+                if (found) return found;
+            }
+            return null;
+        }
+
+        function updateProgress() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const total = 45;
+            const percent = Math.round((answeredCount / total) * 100);
+
+            document.getElementById('progress-bar').style.width = `${percent}%`;
+            document.getElementById('progress-text').textContent = `${answeredCount}/${total} câu`;
+        }
+
+        function normalizeString(str) {
+            return str.toLowerCase()
+                .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
+                .replace(/\s+/g, " ")
+                .trim();
+        }
+
+        function submitTest() {
+            if (submitted) {
+                openModal();
+                return;
+            }
+
+            const name = document.getElementById('student-name').value.trim() || 'Học sinh';
+            const sClass = document.getElementById('student-class').value.trim() || '5';
+            
+            let correctCount = 0;
+            const totalQuestions = 45;
+
+            examData.forEach(sec => {
+                sec.questions.forEach(q => {
+                    const expBox = document.getElementById(`exp-${q.id}`);
+                    expBox.classList.remove('hidden');
+
+                    if (q.type === 'mcq') {
+                        const userAns = userAnswers[q.id];
+                        q.options.forEach((_, idx) => {
+                            const btn = document.getElementById(`btn-${q.id}-${idx}`);
+                            const icon = document.getElementById(`icon-${q.id}-${idx}`);
+                            btn.disabled = true;
+
+                            if (idx === q.correct) {
+                                btn.className = "option-btn text-left p-3 border rounded-xl text-xs sm:text-sm flex items-center justify-between correct-option";
+                                icon.className = "fa-solid fa-circle-check text-emerald-600 text-sm";
+                            } else if (userAns === idx && idx !== q.correct) {
+                                btn.className = "option-btn text-left p-3 border rounded-xl text-xs sm:text-sm flex items-center justify-between incorrect-option";
+                                icon.className = "fa-solid fa-circle-xmark text-red-500 text-sm";
+                            } else {
+                                btn.className = "option-btn text-left p-3 border border-slate-200 rounded-xl text-xs sm:text-sm font-medium text-slate-400 opacity-60 flex items-center justify-between";
+                                icon.className = "fa-regular fa-circle text-slate-200 text-sm";
+                            }
+                        });
+
+                        if (userAns === q.correct) {
+                            correctCount++;
+                        }
+                    } else if (q.type === 'text') {
+                        const inputEl = document.getElementById(`input-${q.id}`);
+                        inputEl.disabled = true;
+
+                        const userVal = userAnswers[q.id] || '';
+                        const isCorrect = normalizeString(userVal) === normalizeString(q.correctAnswer);
+
+                        if (isCorrect) {
+                            correctCount++;
+                            inputEl.className = "w-full px-3.5 py-2.5 border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-medium rounded-xl text-sm outline-none";
+                        } else {
+                            inputEl.className = "w-full px-3.5 py-2.5 border-2 border-red-400 bg-red-50 text-red-900 font-medium rounded-xl text-sm outline-none";
+                        }
+                    }
+                });
+            });
+
+            // Calculating Score out of 10.0 scale (Each question = 0.2 points, 45 * 0.2 = 9.0; scaled x(10/9) to match standard 10.0 grade)
+            // Or exact 0.2 per question scaled accurately:
+            const rawScore = correctCount * 0.2;
+            const finalScore10Scale = ((correctCount / totalQuestions) * 10).toFixed(1);
+
+            submitted = true;
+
+            // Update UI Score
+            document.getElementById('score-display').innerHTML = `<span class="text-emerald-700">${finalScore10Scale} / 10.0</span> <span class="text-xs text-slate-500">(${correctCount}/${totalQuestions} câu)</span>`;
+
+            // Setup Modal
+            document.getElementById('student-result-name').textContent = `Học sinh: ${name} - Lớp: ${sClass}`;
+            document.getElementById('modal-score').textContent = finalScore10Scale;
+            document.getElementById('modal-correct').textContent = `${correctCount}/${totalQuestions}`;
+            document.getElementById('modal-percent').textContent = `${Math.round((correctCount/totalQuestions)*100)}%`;
+
+            let feedback = "";
+            if (finalScore10Scale >= 9.0) {
+                feedback = "🌟 Xuất sắc! Con nắm rất vững kiến thức Tiếng Anh lớp 5!";
+            } else if (finalScore10Scale >= 7.0) {
+                feedback = "👍 Tốt lắm! Hãy xem lại các câu sai để đạt điểm tối đa nhé!";
+            } else if (finalScore10Scale >= 5.0) {
+                feedback = "💪 Khá tốt! Cần luyện tập thêm phần ngữ pháp và từ vựng nhé!";
+            } else {
+                feedback = "📚 Hãy ôn lại kiến thức và làm lại đề thi để cải thiện kết quả nhé!";
+            }
+            document.getElementById('modal-feedback').textContent = feedback;
+
+            openModal();
+        }
+
+        function openModal() {
+            document.getElementById('score-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('score-modal').classList.add('hidden');
+            // Scroll smoothly to top of test for review
+            window.scrollTo({ top: 180, behavior: 'smooth' });
+        }
+
+        function resetTest() {
+            if (confirm("Bạn có chắc chắn muốn làm lại bài thi từ đầu?")) {
+                userAnswers = {};
+                submitted = false;
+                document.getElementById('score-display').innerHTML = `<span>-- / 10.0</span><span class="text-xs font-normal text-slate-500">(Chưa nộp)</span>`;
+                renderTest();
+                updateProgress();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
